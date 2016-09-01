@@ -1,4 +1,4 @@
-﻿My currently favourite game.
+My currently favourite game.
 Rimworld
 
 Rimworld is a sandbox like building and colony management simulator. This game was heavily influenced by another game called dwarf fortress. Even though this game is still in alpha development, currently alpha 15, it is available for purchase on PC for $30. Rimworld has gotten overwhelmingly positive reviews (4,420 reviews).
@@ -15,3 +15,11 @@ One day the largest raid in the colonists’ history arrived. They marched with 
 With new weapons and a growing need to eradicate the now huge infestation, Velasquez gathered the colony, extra Molotov cocktails, turrets and artillery and marched on the hive.  The battle was brutal, lives were lost on each side but the hive had numbers and overwhelmed the colony. Freckles, the incendiary specialist, was the first to die after failing to run back from setting the hive on fire. The artillery piece was overwhelmed and Serrano and Wanda both died to the bugs. Velasquez, Seraph, Finn, and Lemur stood their ground but also fell. Velasquez did not make it. Tycho, overcome with grief threw down his gun and wandered into the hive not to be seen again. Loser, the last survivor, took the last of the Molotov’s and ran into the hive to avenge her fallen comrades. 
 Everyone is dead or gone. This story is over.
 Perhaps someone else will find a use for the ruins of this place.
+
+
+
+
+sources:
+http://www.websitecodetutorials.com/code/photo-galleries/css-popup-image.php
+http://cssdemos.tupence.co.uk/image-popup.htm
+https://codepen.io/maxds/pen/DcveB
