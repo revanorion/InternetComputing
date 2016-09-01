@@ -1,18 +1,90 @@
+.top-header{
+    background-image: url(images/rimworld_logo_top.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    min-height: 170px;
+}
+footer{
+    background-image: url(images/rimworld_logo_bottom.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    min-height: 170px;
+}
+image{
+    resize: inherit;
+}
+.container{
+    display: inline-block;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+blockquote{
+     border-left: 15px solid #000000;
+    border-right: 5px solid #d0d0d0;
+
+    padding: 15px 20px 15px 45px;
+    display:block;
+     text-align: justify;
+
+     -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+}
+
+blockquote::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #ffffff;
+
+  /*Positioning*/
+  left: 10px;
+  top:5px;
+}
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
+
+
+.content{
+    opacity: .7;
+    padding: 10px;
+    margin: 20px;
+    background: gray;
+    border-radius: 4px;
+    border-style: solid;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+}
 html {
-    background: #e6e9e9;
-    background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);
+
+    background-image:url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;
     -webkit-font-smoothing: antialiased;
 
 }
 .navbar{
-      position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-        border-radius: 4px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-bottom-left-radius: 4px;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
     background: blue;
     padding-right: 15px;
     padding-left: 15px
@@ -20,7 +92,9 @@ html {
 
 
 body {
-  font-size: 14px;
+    padding: 10px;
+    font-size: 20px;
+    color:#FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,7 +108,7 @@ h2 {
 }
 
 a {
-    color: #0083e8;
+    color: #ffffff;
 }
 
 b, strong {
