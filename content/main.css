@@ -55,19 +55,22 @@ blockquote::after{
     position: relative;
     min-height: 50px;
     margin-bottom: 20px;
+    margin-top:0px;
     border-radius: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    background: blue;
+    background: rgba(128, 128, 128, 0.7);
     padding-right: 15px;
     padding-left: 15px
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
 }
 
 
 body {
-    padding: 10px;
+    margin:0px;
+    padding-bottom: 10px;
     font-size: 20px;
     color:#FFFFFF;
 }
@@ -101,9 +104,11 @@ img {
     background: transparent;
     border: 10px solid rgba(0, 0, 0, 0.12);
     border-radius: 4px;
-    display:block;
+    display:inline-block;
     margin: 1.3em auto;
     max-width: 95%;
+    align-self: center;
+
 }
 table{
     border-collapse: collapse;
@@ -144,4 +149,25 @@ table.center {
     top: -300px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
     left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
     z-index: 50;
+}
+ul{
+    list-style: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+}
+li.navitem {
+    float: left;
+    padding-left:5px;
+    padding-right: 5px;
+    margin-left:40px;
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+}
+
+.navitem:hover
+{
+    background: rgba(128, 128, 128, 0.7);
+    cursor: pointer;
 }
