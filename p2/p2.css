@@ -5,7 +5,6 @@
     background-size:contain;
     min-height: 170px;
 }
-/*
 footer{
     background-image: url(images/rimworld_logo_bottom.png);
     background-repeat: no-repeat;
@@ -13,12 +12,12 @@ footer{
     background-size:contain;
     min-height: 170px;
 }
-*/
 
 html {
-    background-image:url(images/background.jpg);
+    background-image:url(images/wallpaper-601344.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:100% 100%;
     -webkit-font-smoothing: antialiased;
 }
+
