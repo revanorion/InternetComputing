@@ -13,6 +13,27 @@
 
     </head>
     <body >
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="modal-header-content"></div>
+                    </div>
+                    <div id="modal-body-content" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
 
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -35,16 +56,40 @@
         </nav>
         <div class="top-header"></div>
         <div class="container">
-            <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis porttitor elit. Nulla ultrices nibh est, id dignissim orci viverra eget. In hac habitasse platea dictumst. Cras at placerat ipsum. Suspendisse vulputate, nisl dignissim iaculis tempus, massa dolor maximus tortor, quis condimentum ex turpis eget quam. Nullam sed metus consequat, lacinia dolor ut, auctor sapien. Nullam blandit erat at arcu sagittis, quis semper lorem vestibulum. Maecenas rutrum nibh eu justo tristique eleifend. Duis at molestie nulla. Praesent vitae cursus risus. In nec lorem congue, rhoncus odio ac, porttitor enim. Sed nec ullamcorper augue. Etiam sed pretium justo, nec tristique justo. Quisque tincidunt, turpis id fringilla eleifend, nisl turpis pretium purus, vitae tincidunt lectus sem vitae est. </p>
+             <div class="row">
+                <div class="col-sm-3 col-md-12 content">
+                    <h1>Rimworld Beginner's Guide</h1>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-md-12 content">
+                    <p> The first thing that must be done when you start a new Rimworld Game is to pick your scenario. The scenario you pick controls how many colonists you can have, starting conditions and items. You are able to create your own scenario or import others using the Steam Workshop.   </p>
+                    <img id="scenario_img" src="images/Crashlanded_Basics.jpg"/>
                 </div>
             </div>
-             <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> Nulla facilisi. Vivamus iaculis congue leo, et sagittis neque posuere at. Integer ut risus vel nulla bibendum fringilla ut at justo. Suspendisse urna lorem, porta nec dapibus id, tincidunt ut metus. Nam commodo dapibus cursus. Nam rutrum lectus imperdiet est sagittis, sit amet varius nibh volutpat. In eget metus bibendum, luctus neque id, mattis quam. Sed vestibulum tincidunt arcu. Suspendisse metus nisl, laoreet ut rutrum sed, tempus vitae est. Sed facilisis interdum nisl, sed varius magna lacinia eu. Integer tristique, ipsum et vehicula faucibus, purus magna faucibus leo, sed facilisis massa dolor nec nibh. Vivamus enim enim, lacinia sed elit finibus, iaculis imperdiet diam. </p>
+               <div class="row">
+                <div class="col-sm-3 col-md-12 content">
+                    <p> The next screen will ask you to pick a storyteller. There are currently three storytellers: Cassandra Classic, Phoebe Chillax, and Randy Random. Each have unique ways of adding encounters and driving gameplay in differnt ways. Click the images below for their descriptions! </p>
                 </div>
             </div>
+             <div class="row">
+                <div class="col-sm-3 col-md-4 content">
+                    <a id="cassandra-popover" data-trigger="focus" tabindex='0' data-placement="top">
+                        <img src="images/557px-Cassandra.png"/>
+                    </a>
+                 </div>
+                <div class="col-sm-3 col-md-4 content">
+                    <a id="phoebe-popover" data-trigger="focus" tabindex='0' data-placement="top">
+                        <img src="images/Phoebe.png"/>
+                    </a>
+                </div>
+                <div class="col-sm-3 col-md-4 content">
+                    <a id="randy-popover" data-trigger="focus" tabindex='0' data-placement="top">
+                        <img src="images/Randy.png"/>
+                    </a>
+                 </div>
+            </div>
+
              <div class="row content">
                 <div class="col-sm-3 col-md-12">
                     <p> Aenean nec elit et mi congue luctus ut in turpis. In eu augue non mi rhoncus convallis. Aliquam neque ante, rutrum quis orci at, egestas pharetra augue. Nam elementum condimentum justo, viverra finibus sem fringilla at. Donec sem diam, ultricies id eleifend id, ullamcorper vel ante. Proin finibus vehicula ligula id accumsan. Aliquam molestie condimentum augue, sit amet pulvinar magna convallis sed. Vestibulum placerat, nisl sit amet aliquet efficitur, diam nisl tempus risus, eu tempus odio justo accumsan massa. Phasellus facilisis condimentum lorem, ultricies mollis nibh feugiat quis. Nunc in semper nunc. Suspendisse potenti. Suspendisse sed sodales libero, pellentesque ultricies est. Proin urna lectus, volutpat ut diam pellentesque, tempor dictum nisl. </p>
@@ -61,8 +106,78 @@
                 </div>
             </div>
         </div>
+
+        <div id="cassandra-popover-content" class="hidden">
+            <div><blockquote>Cassandra creates story events on a steadily-increasing curve of challenge and tension.
+                    <br/><cite>- In-game description</cite>
+                </blockquote></div>
+        </div>
+
+        <div id="cassandra-popover-title" class="hidden"><h4>Cassandra</h4></div>
+
+         <div id="phoebe-popover-content" class="hidden">
+            <div><blockquote>Phoebe gives lots of time between disasters to relax and build your colony. But beware - if she's set at a high challenge scale, she'll hit as hard as anyone.
+                    <br/><cite>- In-game description</cite>
+                </blockquote></div>
+        </div>
+
+        <div id="phoebe-popover-title" class="hidden"><h4>Phoebe</h4></div>
+
+         <div id="randy-popover-content" class="hidden">
+            <div><blockquote>Randy doesn't follow rules. He'll generate random events, and he doesn't care if they make a story of triumph or utter hopelessness. It's all drama to him.
+                    <br/><cite>- In-game description</cite>
+                </blockquote></div>
+        </div>
+
+        <div id="randy-popover-title" class="hidden"><h4>Randy</h4></div>
+
+
         <footer></footer>
     </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#scenario_img").on('click',function(){
+            $("#modal-body-content").html(
+                "<img src='images/Crashlanded_Basics.jpg'/>"+
+                "<p>This screen shows three differnt game scenarios to choose from. There is a button on the bottom where a player can edit indivudial scenarios. The Crashlanded scenario is the best starting scenario for new players.</p>"
+            );
+            $("#modal-header-content").html("<h4 class='modal-title'>Scenario Picker</h4>");
+            $("#myModal").modal('show');
+        });
+        $('[data-toggle="popover"]').popover();
 
 
+        $("#cassandra-popover").popover({
+            html : true,
+            content: function() {
+              return $("#cassandra-popover-content").html();
+            },
+            title: function() {
+              return $("#cassandra-popover-title").html();
+            }
+        });
+        $("#phoebe-popover").popover({
+            html : true,
+            content: function() {
+              return $("#phoebe-popover-content").html();
+            },
+            title: function() {
+              return $("#phoebe-popover-title").html();
+            }
+        });
+        $("#randy-popover").popover({
+            html : true,
+            content: function() {
+              return $("#randy-popover-content").html();
+            },
+            title: function() {
+              return $("#randy-popover-title").html();
+            }
+        });
+
+    });
+</script>
+
+<!--http://stackoverflow.com/questions/13202762/html-inside-twitter-bootstrap-popover
+http://www.w3schools.com/bootstrap/bootstrap_ref_js_popover.asp-->
