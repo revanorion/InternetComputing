@@ -32,9 +32,6 @@
             </div>
         </div>
 
-
-
-
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -63,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 col-md-12 content">
-                    <p> The first thing that must be done when you start a new Rimworld Game is to pick your scenario. The scenario you pick controls how many colonists you can have, starting conditions and items. You are able to create your own scenario or import others using the Steam Workshop.   </p>
+                    <p> The first thing that must be done when you start a new Rimworld Game is to pick your scenario. The scenario you pick controls how many colonists you can have, starting conditions and items. You are able to create your own scenario or import others using the Steam Workshop. Click the image below for more info.  </p>
                     <img id="scenario_img" src="images/Crashlanded_Basics.jpg"/>
                 </div>
             </div>
@@ -92,17 +89,29 @@
 
              <div class="row content">
                 <div class="col-sm-3 col-md-12">
-                    <p> Aenean nec elit et mi congue luctus ut in turpis. In eu augue non mi rhoncus convallis. Aliquam neque ante, rutrum quis orci at, egestas pharetra augue. Nam elementum condimentum justo, viverra finibus sem fringilla at. Donec sem diam, ultricies id eleifend id, ullamcorper vel ante. Proin finibus vehicula ligula id accumsan. Aliquam molestie condimentum augue, sit amet pulvinar magna convallis sed. Vestibulum placerat, nisl sit amet aliquet efficitur, diam nisl tempus risus, eu tempus odio justo accumsan massa. Phasellus facilisis condimentum lorem, ultricies mollis nibh feugiat quis. Nunc in semper nunc. Suspendisse potenti. Suspendisse sed sodales libero, pellentesque ultricies est. Proin urna lectus, volutpat ut diam pellentesque, tempor dictum nisl. </p>
+                    <p> The next two screens prompt you for specific world generation options. The first screen asks for a seed and size of the world to generate. The seed is what randomizes the world generation. You may also put in seeds shared from other players to generate a world exactly like theirs. After you generate the world, you must select your landing site very carefully as it mean life or death for the colonists. The world is comprised of many different biomes such as Rainforest or Tundra. It is recommended for new players to play in the Temperate Mountains biome. The advanced tab also allows you to specify how large the game map will be. I always play on the largest size.  </p>
+                    <img id="landing_site_img" src="images/Landing_Site_Basics.jpg"/>
+                </div>
+
+            </div>
+             <div class="row content">
+                <div class="col-sm-3 col-md-12">
+                    <p> After those steps comes the most important piece of making your world, colonist selection. The most basic game selection gives a player 3 colonists to start with, however that may be changed in the options listed above. Each character comes with a set of stats that give them a bonus in that specifc area. The game allows you to randomize the colonist which includes skills, name, health, relations, ect. With 20 points being the maximum amount, a player should aim high yet keep their colonists balanced. Good skills to focus on would be shooting, doctor, and mining. </p>
+                    <a id="create-colonist-popover" data-trigger="focus" tabindex='0' data-placement="left">
+                        <img id="create-colonist-img" src="images/character_creator.PNG"/>
+                    </a>
                 </div>
             </div>
              <div class="row content">
                 <div class="col-sm-3 col-md-12">
-                    <p> Nullam augue elit, egestas non metus ut, blandit consectetur enim. Sed posuere dolor mauris, eget varius lectus vehicula eget. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam non erat rhoncus, pulvinar nunc a, condimentum tortor. In iaculis nibh sapien, ac tristique justo ullamcorper posuere. Fusce quis erat sed sem viverra lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur non enim purus. Vivamus finibus, purus nec fermentum aliquam, purus erat placerat elit, vitae porttitor neque felis eu elit. Nam accumsan dolor a diam ornare semper. Quisque dignissim ullamcorper tempus. Aliquam tincidunt ligula vitae ullamcorper viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In lacinia velit vel pharetra maximus. In vitae dolor nec sapien commodo porta. Phasellus iaculis iaculis sapien eu hendrerit. </p>
+                    <p> From here you are dropped in to the hostile world where you must scramble to make or find a place to have your colonists sleep. Food will soon become an issue and you must prepare for starvation. Hunting and growing crops will get you started but you will also need a good cook in order to make meals. Additionally defense must be made, mining must be done, and research to advance your technology. Assigning the correct colonists for the job is a life or death choice. The higher their skill level, the better they are at doing that job. </p>
+                    <a href="images/Raid_Basics.jpg"><img id="raider-img" src="images/Raid_Basics.jpg"/></a>
                 </div>
             </div>
-             <div class="row content">
+            <div class="row content">
                 <div class="col-sm-3 col-md-12">
-                    <p> Sed interdum id erat sit amet maximus. Quisque nec accumsan justo. Quisque nec lorem quis purus malesuada interdum et at turpis. Quisque lectus dolor, cursus at viverra ut, condimentum vitae purus. Cras porttitor lobortis eros sed tincidunt. Proin ut libero eget metus tristique blandit. Mauris tincidunt velit id dictum hendrerit. Sed id tempus leo. Quisque id nulla quam. Phasellus quis aliquam velit. Curabitur orci mauris, ornare vel neque ut, sollicitudin fermentum nibh. Fusce dignissim lectus tellus, quis fermentum libero sollicitudin at. </p>
+                    <p> After a while, your colony will either become a success or failure. Will you continue to thrive on your Rimworld or will colony fall into ruins or will they advance to the point of space flight to escape the planet. In the end, everyone is either dead or gone. </p>
+                    <a href="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg"><img id="large-colony-img" src="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg"/></a>
                 </div>
             </div>
         </div>
@@ -131,18 +140,44 @@
 
         <div id="randy-popover-title" class="hidden"><h4>Randy</h4></div>
 
+        <div id="create-colonist-popover-content" class="hidden">
+            <div>
+                <p>The character creator screen tells a story about each colonist, what they can do, what they cant, who they like or hate, and their traits.</p>
+                <p>Each character is unique and attachment between player and colonist may form. </p>
+            </div>
+        </div>
+
+        <div id="create-colonist-popover-title" class="hidden"><h4>Create Character</h4></div>
+
 
         <footer></footer>
     </body>
 </html>
+
+
 <script type="text/javascript">
     $(document).ready(function(){
         $("#scenario_img").on('click',function(){
             $("#modal-body-content").html(
-                "<img src='images/Crashlanded_Basics.jpg'/>"+
-                "<p>This screen shows three differnt game scenarios to choose from. There is a button on the bottom where a player can edit indivudial scenarios. The Crashlanded scenario is the best starting scenario for new players.</p>"
+//                "<div class='container'>"+
+//                "<div class='row'>"+
+//                "<div class='col-sm-3 col-md-3 content'>"+
+                "<img src='images/crashlanded.png'>"+
+//                "</div>"+
+//                "<div class='col-sm-3 col-md-3 content'>"+
+
+//                "</div>"+
+//                "<div class='col-sm-3 col-md-3 content'>"+
+
+//                "</div>"+
+//                "</div>"+
+//                "</div>"+
+                "<img src='images/crashlandedScn.png'>"+
+                "<img src='images/losttribe.png'>"+
+                "<img src='images/richexplorer.png' class='pull-right'>"+
+                "<p>This screen shows three differnt game scenarios to choose from. There is a button on the bottom where a player can edit indivudial scenarios. The Crashlanded scenario is the best starting scenario for new players as it gives guns, food, and medicine along with building materials.</p>"
             );
-            $("#modal-header-content").html("<h4 class='modal-title'>Scenario Picker</h4>");
+            $("#modal-header-content").html("<h2 class='modal-title'>Scenario Picker</h2>");
             $("#myModal").modal('show');
         });
         $('[data-toggle="popover"]').popover();
@@ -173,6 +208,15 @@
             },
             title: function() {
               return $("#randy-popover-title").html();
+            }
+        });
+        $("#create-colonist-popover").popover({
+            html : true,
+            content: function() {
+              return $("#create-colonist-popover-content").html();
+            },
+            title: function() {
+              return $("#create-colonist-popover-title").html();
             }
         });
 
