@@ -82,7 +82,7 @@ document.getElementById("length_to").onchange = function () {
 };
 
 
-
+//this func will handle the calculation of data conversion
 var calcData = function () {
     'use strict';
     var myData = document.getElementById("data").value;
