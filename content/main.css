@@ -82,3 +82,6 @@ img {
 .hidden {
   display: none;
 }
+.validation{
+    color: red;
+}
