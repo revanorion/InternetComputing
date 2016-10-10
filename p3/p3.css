@@ -1,17 +1,4 @@
-1.top-header{
-    background-image:url(images/rimworld_logo_top.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-    min-height: 170px;
-}
-footer{
-    background-image: url(images/rimworld_logo_bottom.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-    min-height: 170px;
-}
+
 
 html {
     background-image:url(images/Dark-Brushed-Metal-metal-texture2_th_thumb1.jpg);
