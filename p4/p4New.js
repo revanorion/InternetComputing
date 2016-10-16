@@ -8,9 +8,37 @@ jQuery(function ($) {
 
 	var ENTER_KEY = 13,
         ESCAPE_KEY = 27,
+        util = {
+            uuid: function () {
+			/*jshint bitwise:false */
+                var i, random,
+                    uuid = '';
+
+                for (i = 0; i < 32; i++) {
+                    random = Math.random() * 16 | 0;
+                    if (i === 8 || i === 12 || i === 16 || i === 20) {
+                        uuid += '-';
+                    }
+                    uuid += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random)).toString(16);
+                }
+
+                return uuid;
+            },
+            pluralize: function (count, word) {
+                return count === 1 ? word : word + 's';
+            },
+            store: function (namespace, data) {
+                if (arguments.length > 1) {
+                    return localStorage.setItem(namespace, JSON.stringify(data));
+                } else {
+                    var store = localStorage.getItem(namespace);
+                    return (store && JSON.parse(store)) || [];
+                }
+            }
+        },
         App = {
             init: function () {
-                this.todos = this.store('todos-jquery');
+                this.todos = util.store('todos-jquery');
                 this.todoTemplate = Handlebars.compile($('#todo-template').html());
                 this.footerTemplate = Handlebars.compile($('#footer-template').html());
                 this.bindEvents();
@@ -21,29 +49,6 @@ jQuery(function ($) {
                         this.render();
                     }.bind(this)
                 }).init('/all');
-            },
-            store: function (namespace, data) {
-                if (arguments.length > 1) {
-                    return localStorage.setItem(namespace, JSON.stringify(data));
-                } else {
-                    var store = localStorage.getItem(namespace);
-                    return (store && JSON.parse(store)) || [];
-                }
-            },
-            pluralize: function (count, word) {
-                return count === 1 ? word : word + 's';
-            },
-            generateUUID: function () {
-                var d = new Date().getTime();
-                if (window.performance && typeof window.performance.now === "function") {
-                    d += performance.now(); //use high-precision timer if available
-                }
-                var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                    var r = (d + Math.random() * 16) % 16 | 0;
-                    d = Math.floor(d / 16);
-                    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-                });
-                return uuid;
             },
             bindEvents: function () {
                 $('#new-todo').on('keyup', this.create.bind(this));
@@ -63,14 +68,14 @@ jQuery(function ($) {
                 $('#toggle-all').prop('checked', this.getActiveTodos().length === 0);
                 this.renderFooter();
                 $('#new-todo').focus();
-                this.store('todos-jquery', this.todos);
+                util.store('todos-jquery', this.todos);
             },
             renderFooter: function () {
                 var todoCount = this.todos.length,
                     activeTodoCount = this.getActiveTodos().length,
                     template = this.footerTemplate({
                         activeTodoCount: activeTodoCount,
-                        activeTodoWord: this.pluralize(activeTodoCount, 'item'),
+                        activeTodoWord: util.pluralize(activeTodoCount, 'item'),
                         completedTodos: todoCount - activeTodoCount,
                         filter: this.filter
                     });
@@ -134,7 +139,7 @@ jQuery(function ($) {
                 }
 
                 this.todos.push({
-                    id: this.generateUUID(),
+                    id: util.uuid(),
                     title: val,
                     completed: false
                 });
