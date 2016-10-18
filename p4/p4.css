@@ -6,9 +6,24 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
-
-
-
+.glyphicon-star [value=true]{
+    color: gold;
+}
+.glyphicon-star:hover{
+    color: rgba(134, 113, 0, 0.4);
+}
+.favourite{
+    display: none !important;
+}
+.favourite:checked + label {
+    color: gold;
+}
+.favourite-label + label{
+    display: none;
+}
+.favourite-label:hover + label{
+    display: inline-block;
+}
 .card{
     padding: 15px;
     background-color: #333;
@@ -105,7 +120,9 @@ input[type="checkbox"] {
 label[for='toggle-all'] {
 	display: none;
 }
-
+#todo-list label:hover {
+    cursor: pointer;
+}
 #toggle-all {
 	position: absolute;
 	top: -55px;
@@ -158,16 +175,8 @@ label[for='toggle-all'] {
 
 #todo-list li .destroy {
 	display: none;
-	position: absolute;
-	top: 0;
-	right: 10px;
-	bottom: 0;
-	width: 40px;
-	height: 40px;
-	margin: auto 0;
 	font-size: 30px;
 	color: #cc9a9a;
-	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
 }
 
@@ -175,10 +184,12 @@ label[for='toggle-all'] {
 	color: #af5b5e;
 }
 
-#todo-list li .destroy:after {
-	content: '×';
+#todo-list li .destroy label {
+	display: none;
 }
-
+#todo-list li .destroy:hover label {
+	display: inline;
+}
 #todo-list li:hover .destroy {
 	display: block;
 }

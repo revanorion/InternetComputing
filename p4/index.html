@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" >
         <title>Unit Conversion</title>
-        <meta name="description" content="Unit Converter, initial-scale=1">
+        <meta name="description" content="Todo List, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <link rel="stylesheet" type="text/css" href="../content/main.css">
@@ -74,9 +74,20 @@
                             <div class="row">
                                 <li {{#if completed}}class="completed"{{/if}} data-id="{{id}}">
                                     <div class="view col-md-12 card">
-                                        <input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
-                                        <label>{{title}}</label>
-                                        <button class="destroy"></button>
+                                        <span class="col-md-2">
+                                            <input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+                                        </span>
+                                        <span class="col-md-2">
+                                            <label>{{title}}</label>
+                                        </span>
+                                        <span class="col-md-5">
+                                            <input id='{{id}}' class="favourite" type="checkbox" {{#if favourite}}checked{{/if}}/>
+                                            <label for='{{id}}' class="favourite-label glyphicon glyphicon-star"></label>
+                                            <label>Favourite</label>
+                                        </span>
+                                        <span class="col-md-2">
+                                            <button class="destroy glyphicon glyphicon-trash"><label>Destroy</label></button>
+                                        </span>
                                     </div>
                                     <input class="col-md-12 edit card" value="{{title}}">
                                 </li>
@@ -91,6 +102,8 @@
                                 </li>
                                 <li>
                                     <a {{#eq filter 'active'}}class="selected"{{/eq}}href="#/active">Active</a>
+                                </li> <li>
+                                    <a {{#eq filter 'favourites'}}class="selected"{{/eq}}href="#/favourites">Favourites</a>
                                 </li>
                                 <li>
                                     <a {{#eq filter 'completed'}}class="selected"{{/eq}}href="#/completed">Completed</a>
@@ -111,4 +124,6 @@
 </html>
 <!--
 http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-https://github.com/tastejs/todomvc/blob/gh-pages/examples/jquery/js/app.js-->
+https://github.com/tastejs/todomvc/blob/gh-pages/examples/jquery/js/app.js
+https://github.com/flatiron/director
+-->

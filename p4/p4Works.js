@@ -1,4 +1,4 @@
-/*global jQuery, Handlebars, Router, alert */
+/*global jQuery, Handlebars, Router */
 jQuery(function ($) {
 	'use strict';
 
@@ -13,6 +13,7 @@ jQuery(function ($) {
                 this.todos = this.store('todos-jquery');
                 this.todoTemplate = Handlebars.compile($('#todo-template').html());
                 this.footerTemplate = Handlebars.compile($('#footer-template').html());
+                this.bindEvents();
 
                 new Router({
                     '/:filter': function (filter) {
@@ -44,6 +45,17 @@ jQuery(function ($) {
                 });
                 return uuid;
             },
+            bindEvents: function () {
+                $('#new-todo').on('keyup', this.create.bind(this));
+                $('#toggle-all').on('change', this.toggleAll.bind(this));
+                $('#footer').on('click', '#clear-completed', this.destroyCompleted.bind(this));
+                $('#todo-list')
+                    .on('change', '.toggle', this.toggle.bind(this))
+                    .on('dblclick', 'label', this.edit.bind(this))
+                    .on('keyup', '.edit', this.editKeyup.bind(this))
+                    .on('focusout', '.edit', this.update.bind(this))
+                    .on('click', '.destroy', this.destroy.bind(this));
+            },
             render: function () {
                 var todos = this.getFilteredTodos();
                 $('#todo-list').html(this.todoTemplate(todos));
@@ -66,7 +78,7 @@ jQuery(function ($) {
                 $('#footer').toggle(todoCount > 0).html(template);
             },
             toggleAll: function (e) {
-                var isChecked = e.prop('checked');
+                var isChecked = $(e.target).prop('checked');
 
                 this.todos.forEach(function (todo) {
                     todo.completed = isChecked;
@@ -77,11 +89,6 @@ jQuery(function ($) {
             getActiveTodos: function () {
                 return this.todos.filter(function (todo) {
                     return !todo.completed;
-                });
-            },
-            getFavouritedTodos: function () {
-                return this.todos.filter(function (todo) {
-                    return todo.favourite;
                 });
             },
             getCompletedTodos: function () {
@@ -98,9 +105,6 @@ jQuery(function ($) {
                     return this.getCompletedTodos();
                 }
 
-                if (this.filter === 'favourites') {
-                    return this.getFavouritedTodos();
-                }
                 return this.todos;
             },
             destroyCompleted: function () {
@@ -122,28 +126,30 @@ jQuery(function ($) {
                 }
             },
             create: function (e) {
-                var $input = e,
+                var $input = $(e.target),
                     val = $input.val().trim();
-                if (!val) {
+
+                if (e.which !== ENTER_KEY || !val) {
                     return;
                 }
 
                 this.todos.push({
                     id: this.generateUUID(),
                     title: val,
-                    favourite: false,
                     completed: false
                 });
+
                 $input.val('');
+
                 this.render();
             },
             toggle: function (e) {
-                var i = this.indexFromEl(e);
+                var i = this.indexFromEl(e.target);
                 this.todos[i].completed = !this.todos[i].completed;
                 this.render();
             },
             edit: function (e) {
-                var $input = e.closest('li').addClass('editing').find('.edit');
+                var $input = $(e.target).closest('li').addClass('editing').find('.edit');
                 $input.val($input.val()).focus();
             },
             editKeyup: function (e) {
@@ -156,7 +162,7 @@ jQuery(function ($) {
                 }
             },
             update: function (e) {
-                var el = e,
+                var el = e.target,
                     $el = $(el),
                     val = $el.val().trim();
 
@@ -173,52 +179,11 @@ jQuery(function ($) {
 
                 this.render();
             },
-            favourite: function (e) {
-                e.prop( "checked");
-                var val = e.is(":checked");
-                this.todos[this.indexFromEl(e)].favourite = val
-                this.render();
-            },
             destroy: function (e) {
-                this.todos.splice(this.indexFromEl(e), 1);
+                this.todos.splice(this.indexFromEl(e.target), 1);
                 this.render();
             }
         };
 
 	App.init();
-
-    $('#new-todo').on('keyup', function (e) {
-        if (e.which === ENTER_KEY) {
-            App.create($(this));
-        }
-    });
-
-    $('#todo-list').on('click', '.favourite', function (e) {
-        App.favourite($(this));
-    });
-
-    $('#todo-list').on('change', '.toggle', function (e) {
-        App.toggle($(this));
-    });
-    $('#todo-list').on('dblclick', 'label', function (e) {
-        App.edit($(this));
-    });
-    $('#todo-list').on('focusout', '.edit', function (e) {
-        App.update($(this));
-    });
-    $('#todo-list').on('click', '.destroy', function (e) {
-        App.destroy($(this));
-    });
-
-    $('#todo-list').on('keyup', '.edit', App.editKeyup.bind(this));
-
-    $('#toggle-all').on('change', function (e) {
-        App.toggleAll($(this));
-    });
-
-    $('#footer').on('click', '#clear-completed', function (e) {
-        App.destroyCompleted();
-    });
-
-
 });
