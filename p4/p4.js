@@ -2,18 +2,25 @@
 jQuery(function ($) {
 	'use strict';
 
+    //This is a block helper used in handlebars
 	Handlebars.registerHelper('eq', function (a, b, options) {
 		return a === b ? options.fn(this) : options.inverse(this);
 	});
 
+    //these two vars represent key values
 	var ENTER_KEY = 13,
         ESCAPE_KEY = 27,
         App = {
+            //this function is the first to be called and sets up the vars
             init: function () {
+                //this grabs the todo list from local storage
                 this.todos = this.store('todos-jquery');
+                //this creates the todo template on the webpage.
                 this.todoTemplate = Handlebars.compile($('#todo-template').html());
+                //this creates the footer or filter template on the bottom
                 this.footerTemplate = Handlebars.compile($('#footer-template').html());
 
+                //this is used by the director to route urls
                 new Router({
                     '/:filter': function (filter) {
                         this.filter = filter;
@@ -21,17 +28,22 @@ jQuery(function ($) {
                     }.bind(this)
                 }).init('/all');
             },
+            //this function grabs or updates data based on the arg list
             store: function (namespace, data) {
                 if (arguments.length > 1) {
+                    //puts the list of todos in localstorage as a json string
                     return localStorage.setItem(namespace, JSON.stringify(data));
                 } else {
+                    //retreave the json string of todos
                     var store = localStorage.getItem(namespace);
+                    //parse the store if an item exists or return an empty list
                     return (store && JSON.parse(store)) || [];
                 }
             },
             pluralize: function (count, word) {
                 return count === 1 ? word : word + 's';
             },
+            //this will generate unique ids for each todo
             generateUUID: function () {
                 var d = new Date().getTime();
                 if (window.performance && typeof window.performance.now === "function") {
@@ -45,12 +57,15 @@ jQuery(function ($) {
                 return uuid;
             },
             render: function () {
+                //this will get the todos based on filters
                 var todos = this.getFilteredTodos();
+                //this will display the todos on the page based on the todotemplate
                 $('#todo-list').html(this.todoTemplate(todos));
                 $('#main').toggle(todos.length > 0);
                 $('#toggle-all').prop('checked', this.getActiveTodos().length === 0);
                 this.renderFooter();
                 $('#new-todo').focus();
+                //this will update the localstorage
                 this.store('todos-jquery', this.todos);
             },
             renderFooter: function () {
@@ -104,6 +119,7 @@ jQuery(function ($) {
                 return this.todos;
             },
             destroyCompleted: function () {
+                //this will overwrite the todo list with only active todos
                 this.todos = this.getActiveTodos();
                 this.filter = 'all';
                 this.render();
@@ -127,7 +143,7 @@ jQuery(function ($) {
                 if (!val) {
                     return;
                 }
-
+                //add new todo to the list
                 this.todos.push({
                     id: this.generateUUID(),
                     title: val,
@@ -174,9 +190,9 @@ jQuery(function ($) {
                 this.render();
             },
             favourite: function (e) {
-                e.prop( "checked");
+                e.prop("checked");
                 var val = e.is(":checked");
-                this.todos[this.indexFromEl(e)].favourite = val
+                this.todos[this.indexFromEl(e)].favourite = val;
                 this.render();
             },
             destroy: function (e) {
@@ -187,6 +203,7 @@ jQuery(function ($) {
 
 	App.init();
 
+    //These are the bindings that allow functionality between the HTML and the DOM
     $('#new-todo').on('keyup', function (e) {
         if (e.which === ENTER_KEY) {
             App.create($(this));

@@ -1,0 +1,17 @@
+
+
+html {
+    background-image:url(images/Dark-Brushed-Metal-metal-texture2_th_thumb1.jpg);
+    background-repeat:repeat
+    background-attachment: fixed;
+    background-size:100% 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+input, select{
+    background-color: darkgray;
+    width: 100%;
+}
+input[type="text"]:disabled {
+    background: gray;
+}
