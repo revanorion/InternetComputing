@@ -1,213 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" >
-        <title>Unit Conversion</title>
-        <meta name="description" content="Unit Converter, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="../content/main.css">
-        <link rel="stylesheet" type="text/css" href="p3.css">
-    </head>
-    <body >
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div id="modal-header-content"></div>
-                    </div>
-                    <div id="modal-body-content" class="modal-body">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Unit Conversion</title>
+    <meta name="description" content="Unit Converter, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../content/main.css">
+    <link rel="stylesheet" type="text/css" href="p3.css"> </head>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+<body>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="modal-header-content"></div>
                 </div>
-
+                <div id="modal-body-content" class="modal-body"> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Tyler's Cool Site</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../p1/index.html">Project One</a></li>
-                        <li><a href="../p2/index.html">Project Two</a></li>
-                        <li class="active"><a href="#">Project Three</a></li>
-                        <li><a href="../p4/index.html">Project Four</a></li>
-                    </ul>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#">Tyler's Cool Site</a> </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../p1/index.html">Project One</a></li>
+                    <li><a href="../p2/index.html">Project Two</a></li>
+                    <li class="active"><a href="#">Project Three</a></li>
+                    <li><a href="../p4/index.html">Project Four</a></li>
+                    <li><a href="../p5/index.html">Project Five</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-12 content">
+                <h1>Units Converter</h1> </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-3 col-md-4 ">
+                <select id="unit_selector">
+                    <option selected value="select_one">Select One</option>
+                    <option value="temp_converter">Temperature</option>
+                    <option value="length_converter">Length</option>
+                    <option value="data_converter">Data</option>
+                </select>
+            </div>
+        </div>
+        <div id="temp_converter" class="row content">
+            <h3>Temperature</h3>
+            <hr/>
+            <div class="col-sm-3 col-md-3">
+                <div class="row">
+                    <input type="text" id="temperature" /> </div>
+                <div id="temp_validation" class="row validation">
+                    <p>Input Must be a Number</p>
                 </div>
             </div>
-        </nav>
-
-        <div class="container">
+            <div class="col-sm-3 col-md-2">
+                <input type="button" id="f_to_c" value="F to C" /> </div>
+            <div class="col-sm-3 col-md-2">
+                <input type="button" id="c_to_f" value="C to F" /> </div>
+            <div class="col-sm-3 col-md-2"> Result: </div>
+            <div class="col-sm-3 col-md-3">
+                <input disabled id="result" type="text"></input>
+            </div>
+        </div>
+        <div id="length_converter" class="row content">
+            <h3>Length</h3>
+            <hr/>
             <div class="row">
-                <div class="col-sm-3 col-md-12 content">
-                    <h1>Units Converter</h1>
+                <div id="length_validation" class="row validation">
+                    <p>Input Must be a Number</p>
                 </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <input type="text" id="length" /> </div>
+                <div class="col-sm-3 col-md-1"> &nbsp; </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <input disabled type="text" id="result_length" /> </div>
             </div>
-
-            <div class="row content">
-                <div class="col-sm-3 col-md-4 ">
-                    <select id="unit_selector">
-                        <option selected value="select_one">Select One</option>
-                        <option value="temp_converter">Temperature</option>
-                        <option value="length_converter">Length</option>
-                        <option value="data_converter">Data</option>
+            <div class="row">
+                <div class="col-sm-3 col-md-3 ">
+                    <select id="length_from">
+                        <option value="39370.1">Kilometer</option>
+                        <option value="39.3701">Meter</option>
+                        <option value="0.393701">Centimeter</option>
+                        <option value="0.0393701">Nanometer</option>
+                        <option value="0.0000393701">Millimeter</option>
+                        <option value="0.0000000393701">Micrometer</option>
+                        <option value="63360">Mile</option>
+                        <option value="36">Yard</option>
+                        <option value="12">Foot</option>
+                        <option value="1">Inch</option>
+                        <option value="72913.4252">Nautical mile</option>
+                    </select>
+                </div>
+                <div class="col-sm-1 col-md-1 "> = </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <select id="length_to">
+                        <option value="39370.1">Kilometer</option>
+                        <option value="39.3701">Meter</option>
+                        <option value="0.393701">Centimeter</option>
+                        <option value="0.0393701">Nanometer</option>
+                        <option value="0.0000393701">Millimeter</option>
+                        <option value="0.0000000393701">Micrometer</option>
+                        <option value="63360">Mile</option>
+                        <option value="36">Yard</option>
+                        <option value="12">Foot</option>
+                        <option value="1">Inch</option>
+                        <option value="72913.4252">Nautical mile</option>
                     </select>
                 </div>
             </div>
-
-
-
-            <div id="temp_converter" class="row content">
-                <h3>Temperature</h3>
-                <hr/>
-                <div class="col-sm-3 col-md-3">
-                    <div class="row">
-                        <input type="text" id="temperature" />
-                    </div>
-                     <div id="temp_validation" class="row validation">
-                        <p>Input Must be a Number</p>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-md-2">
-                    <input type="button" id="f_to_c" value="F to C" />
-                </div>
-                <div class="col-sm-3 col-md-2">
-                    <input type="button" id="c_to_f" value="C to F" />
-                </div>
-                <div class="col-sm-3 col-md-2">
-                    Result:
-                </div>
-                <div class="col-sm-3 col-md-3">
-                    <input disabled id="result" type="text"></input>
-                </div>
-             </div>
-            <div id="length_converter" class="row content">
-                <h3>Length</h3>
-                <hr/>
-                <div class="row">
-                    <div id="length_validation" class="row validation">
-                        <p>Input Must be a Number</p>
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <input type="text" id="length" />
-                    </div>
-                     <div class="col-sm-3 col-md-1">
-                        &nbsp;
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <input disabled type="text" id="result_length" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3 col-md-3 ">
-                        <select id="length_from">
-                            <option value="39370.1">Kilometer</option>
-                            <option value="39.3701">Meter</option>
-                            <option value="0.393701">Centimeter</option>
-                            <option value="0.0393701">Nanometer</option>
-                            <option value="0.0000393701">Millimeter</option>
-                            <option value="0.0000000393701">Micrometer</option>
-                            <option value="63360">Mile</option>
-                            <option value="36">Yard</option>
-                            <option value="12">Foot</option>
-                            <option value="1">Inch</option>
-                            <option value="72913.4252">Nautical mile</option>
-                        </select>
-                    </div>
-                   <div class="col-sm-1 col-md-1 ">
-                       =
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <select id="length_to">
-                            <option value="39370.1">Kilometer</option>
-                            <option value="39.3701">Meter</option>
-                            <option value="0.393701">Centimeter</option>
-                            <option value="0.0393701">Nanometer</option>
-                            <option value="0.0000393701">Millimeter</option>
-                            <option value="0.0000000393701">Micrometer</option>
-                            <option value="63360">Mile</option>
-                            <option value="36">Yard</option>
-                            <option value="12">Foot</option>
-                            <option value="1">Inch</option>
-                            <option value="72913.4252">Nautical mile</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div id="data_converter" class="row content">
-                <h3>Data</h3>
-                <hr/>
-                <div class="row">
-                    <div id="data_validation" class="row validation">
-                        <p>Input Must be a Number</p>
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <input type="text" id="data" />
-                    </div>
-                     <div class="col-sm-3 col-md-1">
-                        &nbsp;
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <input disabled type="text" id="result_data" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3 col-md-3 ">
-                        <select id="data_from">
-                            <option value="0.125">Bit</option>
-                            <option value="125">Kilobit</option>
-                            <option value="125000">Megabit</option>
-                            <option value="1.25e+8">Gigabit</option>
-                            <option value="1.25e+11">Terabit</option>
-                            <option value="1.25e+14">Petabit</option>
-                            <option value="1">Byte</option>
-                            <option value="1000">Kilobyte</option>
-                            <option value="1e+6">Megabyte</option>
-                            <option value="1e+9">Gigabyte</option>
-                            <option value="1e+12">Terabyte</option>
-                            <option value="1e+15">Petabyte</option>
-                        </select>
-                    </div>
-                   <div class="col-sm-1 col-md-1 ">
-                       =
-                    </div>
-                    <div class="col-sm-3 col-md-3 ">
-                        <select id="data_to">
-                            <option value="0.125">Bit</option>
-                            <option value="125">Kilobit</option>
-                            <option value="125000">Megabit</option>
-                            <option value="1.25e+8">Gigabit</option>
-                            <option value="1.25e+11">Terabit</option>
-                            <option value="1.25e+14">Petabit</option>
-                            <option value="1">Byte</option>
-                            <option value="1000">Kilobyte</option>
-                            <option value="1e+6">Megabyte</option>
-                            <option value="1e+9">Gigabyte</option>
-                            <option value="1e+12">Terabyte</option>
-                            <option value="1e+15">Petabyte</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div id="select_one"></div>
         </div>
+        <div id="data_converter" class="row content">
+            <h3>Data</h3>
+            <hr/>
+            <div class="row">
+                <div id="data_validation" class="row validation">
+                    <p>Input Must be a Number</p>
+                </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <input type="text" id="data" /> </div>
+                <div class="col-sm-3 col-md-1"> &nbsp; </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <input disabled type="text" id="result_data" /> </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-md-3 ">
+                    <select id="data_from">
+                        <option value="0.125">Bit</option>
+                        <option value="125">Kilobit</option>
+                        <option value="125000">Megabit</option>
+                        <option value="1.25e+8">Gigabit</option>
+                        <option value="1.25e+11">Terabit</option>
+                        <option value="1.25e+14">Petabit</option>
+                        <option value="1">Byte</option>
+                        <option value="1000">Kilobyte</option>
+                        <option value="1e+6">Megabyte</option>
+                        <option value="1e+9">Gigabyte</option>
+                        <option value="1e+12">Terabyte</option>
+                        <option value="1e+15">Petabyte</option>
+                    </select>
+                </div>
+                <div class="col-sm-1 col-md-1 "> = </div>
+                <div class="col-sm-3 col-md-3 ">
+                    <select id="data_to">
+                        <option value="0.125">Bit</option>
+                        <option value="125">Kilobit</option>
+                        <option value="125000">Megabit</option>
+                        <option value="1.25e+8">Gigabit</option>
+                        <option value="1.25e+11">Terabit</option>
+                        <option value="1.25e+14">Petabit</option>
+                        <option value="1">Byte</option>
+                        <option value="1000">Kilobyte</option>
+                        <option value="1e+6">Megabyte</option>
+                        <option value="1e+9">Gigabyte</option>
+                        <option value="1e+12">Terabyte</option>
+                        <option value="1e+15">Petabyte</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="select_one"></div>
+    </div>
     <script src="p3.js" type="text/javascript"></script>
-    </body>
+</body>
+
 </html>

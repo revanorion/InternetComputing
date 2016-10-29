@@ -1,157 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" >
-        <title>Rimworld</title>
-        <meta name="description" content="Rimworld Stragety, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="p2.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="../content/main.css">
-        <link rel="stylesheet" type="text/css" href="p2.css">
-    </head>
-    <body >
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div id="modal-header-content"></div>
-                    </div>
-                    <div id="modal-body-content" class="modal-body">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Rimworld</title>
+    <meta name="description" content="Rimworld Stragety, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="p2.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../content/main.css">
+    <link rel="stylesheet" type="text/css" href="p2.css"> </head>
 
-            </div>
-        </div>
-
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Tyler's Cool Site</a>
+<body>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="modal-header-content"></div>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../p1/index.html">Project One</a></li>
-                        <li class="active"><a href="#">Project Two</a></li>
-                        <li><a href="../p3/index.html">Project Three</a></li>
-                        <li><a href="../p4/index.html">Project Four</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="top-header"></div>
-        <div class="container">
-             <div class="row">
-                <div class="col-sm-3 col-md-12 content">
-                    <h1>Rimworld Beginner's Guide</h1>
-                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 col-md-12 content">
-                    <p> The first thing that must be done when you start a new Rimworld Game is to pick your scenario. The scenario you pick controls how many colonists you can have, starting conditions and items. You are able to create your own scenario or import others using the Steam Workshop. Click the image below for more info.  </p>
-                    <img id="scenario_img" src="images/Crashlanded_Basics.jpg"/>
-                </div>
-            </div>
-               <div class="row">
-                <div class="col-sm-3 col-md-12 content">
-                    <p> The next screen will ask you to pick a storyteller. There are currently three storytellers: Cassandra Classic, Phoebe Chillax, and Randy Random. Each have unique ways of adding encounters and driving gameplay in differnt ways. Click the images below for their descriptions! </p>
-                </div>
-            </div>
-             <div class="row">
-                <div class="col-sm-3 col-md-4 content">
-                    <a id="cassandra-popover" data-trigger="focus" tabindex='0' data-placement="top">
-                        <img src="images/557px-Cassandra.png"/>
-                    </a>
-                 </div>
-                <div class="col-sm-3 col-md-4 content">
-                    <a id="phoebe-popover" data-trigger="focus" tabindex='0' data-placement="top">
-                        <img src="images/Phoebe.png"/>
-                    </a>
-                </div>
-                <div class="col-sm-3 col-md-4 content">
-                    <a id="randy-popover" data-trigger="focus" tabindex='0' data-placement="top">
-                        <img src="images/Randy.png"/>
-                    </a>
-                 </div>
-            </div>
-
-             <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> The next two screens prompt you for specific world generation options. The first screen asks for a seed and size of the world to generate. The seed is what randomizes the world generation. You may also put in seeds shared from other players to generate a world exactly like theirs. After you generate the world, you must select your landing site very carefully as it mean life or death for the colonists. The world is comprised of many different biomes such as Rainforest or Tundra. It is recommended for new players to play in the Temperate Mountains biome. The advanced tab also allows you to specify how large the game map will be. I always play on the largest size.  </p>
-                    <img id="landing_site_img" src="images/Landing_Site_Basics.jpg"/>
-                </div>
-
-            </div>
-             <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> After those steps comes the most important piece of making your world, colonist selection. The most basic game selection gives a player 3 colonists to start with, however that may be changed in the options listed above. Each character comes with a set of stats that give them a bonus in that specifc area. The game allows you to randomize the colonist which includes skills, name, health, relations, ect. With 20 points being the maximum amount, a player should aim high yet keep their colonists balanced. Good skills to focus on would be shooting, doctor, and mining. </p>
-                    <a id="create-colonist-popover" data-trigger="focus" tabindex='0' data-placement="left">
-                        <img id="create-colonist-img" src="images/character_creator.PNG"/>
-                    </a>
-                </div>
-            </div>
-             <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> From here you are dropped in to the hostile world where you must scramble to make or find a place to have your colonists sleep. Food will soon become an issue and you must prepare for starvation. Hunting and growing crops will get you started but you will also need a good cook in order to make meals. Additionally defense must be made, mining must be done, and research to advance your technology. Assigning the correct colonists for the job is a life or death choice. The higher their skill level, the better they are at doing that job. </p>
-                    <a href="images/Raid_Basics.jpg"><img id="raider-img" src="images/Raid_Basics.jpg"/></a>
-                </div>
-            </div>
-            <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p> After a while, your colony will either become a success or failure. Will you continue to thrive on your Rimworld or will colony fall into ruins or will they advance to the point of space flight to escape the planet. In the end, everyone is either dead or gone. </p>
-                    <a href="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg"><img id="large-colony-img" src="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg"/></a>
+                <div id="modal-body-content" class="modal-body"> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-
-        <div id="cassandra-popover-content" class="hidden">
-            <div><blockquote>Cassandra creates story events on a steadily-increasing curve of challenge and tension.
-                    <br/><cite>- In-game description</cite>
-                </blockquote></div>
-        </div>
-
-        <div id="cassandra-popover-title" class="hidden"><h4>Cassandra</h4></div>
-
-         <div id="phoebe-popover-content" class="hidden">
-            <div><blockquote>Phoebe gives lots of time between disasters to relax and build your colony. But beware - if she's set at a high challenge scale, she'll hit as hard as anyone.
-                    <br/><cite>- In-game description</cite>
-                </blockquote></div>
-        </div>
-
-        <div id="phoebe-popover-title" class="hidden"><h4>Phoebe</h4></div>
-
-         <div id="randy-popover-content" class="hidden">
-            <div><blockquote>Randy doesn't follow rules. He'll generate random events, and he doesn't care if they make a story of triumph or utter hopelessness. It's all drama to him.
-                    <br/><cite>- In-game description</cite>
-                </blockquote></div>
-        </div>
-
-        <div id="randy-popover-title" class="hidden"><h4>Randy</h4></div>
-
-        <div id="create-colonist-popover-content" class="hidden">
-            <div>
-                <p>The character creator screen tells a story about each colonist, what they can do, what they cant, who they like or hate, and their traits.</p>
-                <p>Each character is unique and attachment between player and colonist may form. </p>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#">Tyler's Cool Site</a> </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../p1/index.html">Project One</a></li>
+                    <li class="active"><a href="#">Project Two</a></li>
+                    <li><a href="../p3/index.html">Project Three</a></li>
+                    <li><a href="../p4/index.html">Project Four</a></li>
+                    <li><a href="../p5/index.html">Project Five</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <div class="top-header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-12 content">
+                <h1>Rimworld Beginner's Guide</h1> </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-12 content">
+                <p> The first thing that must be done when you start a new Rimworld Game is to pick your scenario. The scenario you pick controls how many colonists you can have, starting conditions and items. You are able to create your own scenario or import others using the Steam Workshop. Click the image below for more info. </p> <img id="scenario_img" src="images/Crashlanded_Basics.jpg" /> </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-12 content">
+                <p> The next screen will ask you to pick a storyteller. There are currently three storytellers: Cassandra Classic, Phoebe Chillax, and Randy Random. Each have unique ways of adding encounters and driving gameplay in differnt ways. Click the images below for their descriptions! </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-4 content">
+                <a id="cassandra-popover" data-trigger="focus" tabindex='0' data-placement="top"> <img src="images/557px-Cassandra.png" /> </a>
+            </div>
+            <div class="col-sm-3 col-md-4 content">
+                <a id="phoebe-popover" data-trigger="focus" tabindex='0' data-placement="top"> <img src="images/Phoebe.png" /> </a>
+            </div>
+            <div class="col-sm-3 col-md-4 content">
+                <a id="randy-popover" data-trigger="focus" tabindex='0' data-placement="top"> <img src="images/Randy.png" /> </a>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-3 col-md-12">
+                <p> The next two screens prompt you for specific world generation options. The first screen asks for a seed and size of the world to generate. The seed is what randomizes the world generation. You may also put in seeds shared from other players to generate a world exactly like theirs. After you generate the world, you must select your landing site very carefully as it mean life or death for the colonists. The world is comprised of many different biomes such as Rainforest or Tundra. It is recommended for new players to play in the Temperate Mountains biome. The advanced tab also allows you to specify how large the game map will be. I always play on the largest size. </p> <img id="landing_site_img" src="images/Landing_Site_Basics.jpg" /> </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-3 col-md-12">
+                <p> After those steps comes the most important piece of making your world, colonist selection. The most basic game selection gives a player 3 colonists to start with, however that may be changed in the options listed above. Each character comes with a set of stats that give them a bonus in that specifc area. The game allows you to randomize the colonist which includes skills, name, health, relations, ect. With 20 points being the maximum amount, a player should aim high yet keep their colonists balanced. Good skills to focus on would be shooting, doctor, and mining. </p>
+                <a id="create-colonist-popover" data-trigger="focus" tabindex='0' data-placement="left"> <img id="create-colonist-img" src="images/character_creator.PNG" /> </a>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-3 col-md-12">
+                <p> From here you are dropped in to the hostile world where you must scramble to make or find a place to have your colonists sleep. Food will soon become an issue and you must prepare for starvation. Hunting and growing crops will get you started but you will also need a good cook in order to make meals. Additionally defense must be made, mining must be done, and research to advance your technology. Assigning the correct colonists for the job is a life or death choice. The higher their skill level, the better they are at doing that job. </p>
+                <a href="images/Raid_Basics.jpg"><img id="raider-img" src="images/Raid_Basics.jpg" /></a>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-3 col-md-12">
+                <p> After a while, your colony will either become a success or failure. Will you continue to thrive on your Rimworld or will colony fall into ruins or will they advance to the point of space flight to escape the planet. In the end, everyone is either dead or gone. </p>
+                <a href="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg"><img id="large-colony-img" src="images/c7ef16bf8047137108f28619077e7fcab6721942.jpg" /></a>
+            </div>
+        </div>
+    </div>
+    <div id="cassandra-popover-content" class="hidden">
+        <div>
+            <blockquote>Cassandra creates story events on a steadily-increasing curve of challenge and tension.
+                <br/><cite>- In-game description</cite> </blockquote>
+        </div>
+    </div>
+    <div id="cassandra-popover-title" class="hidden">
+        <h4>Cassandra</h4></div>
+    <div id="phoebe-popover-content" class="hidden">
+        <div>
+            <blockquote>Phoebe gives lots of time between disasters to relax and build your colony. But beware - if she's set at a high challenge scale, she'll hit as hard as anyone.
+                <br/><cite>- In-game description</cite> </blockquote>
+        </div>
+    </div>
+    <div id="phoebe-popover-title" class="hidden">
+        <h4>Phoebe</h4></div>
+    <div id="randy-popover-content" class="hidden">
+        <div>
+            <blockquote>Randy doesn't follow rules. He'll generate random events, and he doesn't care if they make a story of triumph or utter hopelessness. It's all drama to him.
+                <br/><cite>- In-game description</cite> </blockquote>
+        </div>
+    </div>
+    <div id="randy-popover-title" class="hidden">
+        <h4>Randy</h4></div>
+    <div id="create-colonist-popover-content" class="hidden">
+        <div>
+            <p>The character creator screen tells a story about each colonist, what they can do, what they cant, who they like or hate, and their traits.</p>
+            <p>Each character is unique and attachment between player and colonist may form. </p>
+        </div>
+    </div>
+    <div id="create-colonist-popover-title" class="hidden">
+        <h4>Create Character</h4></div>
+    <footer></footer>
+</body>
 
-        <div id="create-colonist-popover-title" class="hidden"><h4>Create Character</h4></div>
-
-
-        <footer></footer>
-    </body>
 </html>
