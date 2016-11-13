@@ -1,7 +1,13 @@
+a {
+    color: #ffffff;
+    font-weight: bolder;
+    font-style: italic;
+}
+
 body {
     background:none !important;
     margin:0px;
-    padding-bottom: 10px;
+    padding-bottom:10px;
     font-size: 20px;
     color:#FFFFFF;
 }

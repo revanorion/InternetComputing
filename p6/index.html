@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Currency Conversion</title>
+    <meta name="description" content="Currency Converter, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../Content/TylerBundle.css">
+    <script src="../Scripts/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script src="../Scripts/TylerBundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="p6.css"> </head>
+
+<body>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="modal-header-content"></div>
+                </div>
+                <div id="modal-body-content" class="modal-body"> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#">Tyler's Cool Site</a> </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../p1/index.html">Project One</a></li>
+                    <li><a href="../p2/index.html">Project Two</a></li>
+                    <li><a href="../p3/index.html">Project Three</a></li>
+                    <li><a href="../p4/index.html">Project Four</a></li>
+                    <li><a href="../p5/index.html">Project Five</a></li>
+                    <li class="active"><a href="#">Project Six</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div id="formContainer" class="col-md-3">
+                <form id="babyForm" method="post" action="p6.php">
+                    <select class="combobox">
+                        <option></option>
+                        <div id="selectOptions">
+                        </div>
+                    </select>
+                    <label for="firstname">Enter a baby name to vote for</label>
+                    <input id="firstname" name="firstname" type="text" value="" /> <span id="hint"></span>
+                    <input type="submit" value="Vote" /> </form>
+                <!---->
+            </div>
+        </div>
+    </div>
+    <script src="p6.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" >
-        <title>Landing</title>
-        <meta name="description" content="Landing Page">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel=stylesheet href="content/main.css">
-        <link rel="stylesheet" href="content/landing.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Tyler's Cool Site</a>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Landing</title>
+    <meta name="description" content="Landing Page">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel=stylesheet href="content/main.css">
+    <link rel="stylesheet" href="content/landing.css"> </head>
+
+<body>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="modal-header-content"></div>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="p1/index.html">Project One</a></li>
-                        <li ><a href="p2/index.html">Project Two</a></li>
-                        <li><a href="p3/index.html">Project Three</a></li>
-                        <li><a href="p4/index.html">Project Four</a></li>
-                        <li><a href="p5/index.html">Project Five</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p>This is Tyler Moak's Website for COP3540. Here I'll be posting links to each of my webpages and assignments for this class.</p>
-            </div>
-            </div>
-            <div class="row content">
-                <div class="col-sm-3 col-md-12">
-                    <p>The first assignment for the Internet of Computing class is about anything as long as I can demonstrate html and css </p>
-                    <p>What I decided to make is a webpage about my currently faviourate game, Rimworld, and discuss an experience I had within the colony building simulator.</p>
-                    <p>You can find that story: <a href="p1/index.html">Here</a>
+                <div id="modal-body-content" class="modal-body"> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#">Tyler's Cool Site</a> </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="p1/index.html">Project One</a></li>
+                    <li><a href="p2/index.html">Project Two</a></li>
+                    <li><a href="p3/index.html">Project Three</a></li>
+                    <li><a href="p4/index.html">Project Four</a></li>
+                    <li><a href="p5/index.html">Project Five</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><img id="p1" src="content/images/images.akamai.steamusercontent.com.jpg" /></div>
+            <div class="col-md-4"><img id="p2" src="content/images/movie.293x165.jpg" /></div>
+            <div class="col-md-4"><img id="p3" src="https://wikidownload.com/Download/metric-conversions-icon.png"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><img id="p4" src="https://lh3.ggpht.com/_q4Y1VB0RxOd8vJ_TlACus2i0rw66tfcg8DND72tTWh83N1Yk3pEbdP9Vljhsd7TZokv=w300"> </div>
+            <div class="col-md-4"><img id="p5" src="http://www.fatrobot.io/images/projects/finanzen-currency-converter/currency-converter-icon.png"></div>
+            <div class="col-md-4"><img id="p6" src="http://cdn.marketplaceimages.windowsphone.com/v8/images/ae1a0cc5-c38a-4708-82b1-4db73b1e7bff?imageType=ws_icon_large"> </div>
+        </div>
+    </div>
+    <script src="portal.js"></script>
+</body>
+
 </html>
