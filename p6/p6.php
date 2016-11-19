@@ -6,6 +6,7 @@ function is_ajax() {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
 
+//This checks which ajax post is called. either for getting data for typeahead, top 10 names, or voting for a name
 if (is_ajax()) {
     if(isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['gender'])) {
         echo getData($_POST['firstname'], $_POST['gender']);
@@ -18,6 +19,8 @@ if (is_ajax()) {
     }
 }
 
+//this gets the data for the typeahead based on the text typed and the gender. it returns either 0 results or
+// it returns a list item limited to 5 results
 function getData($firstname, $gender){
     require_once './php/db_connect.php';
     $selectStmt = "SELECT FIRSTNAME, BABYNAMES_SEQ FROM babynames WHERE FIRSTNAME LIKE '".$firstname."%' AND GENDER='".$gender."' LIMIT 5";
@@ -35,6 +38,7 @@ function getData($firstname, $gender){
     return $getResults;
 }
 
+//this votes for the specific baby name. it first tests to see if the id is actually in the db then it updates the vote count
 function vote($id){
     require_once './php/db_connect.php';
     $selectStmt = "SELECT VOTES FROM babynames WHERE BABYNAMES_SEQ= '".$id."'";
