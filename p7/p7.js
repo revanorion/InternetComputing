@@ -89,10 +89,30 @@ $(document).ready(function () {
                 'password': password
             };
             $.post(url, data, function (response) {
-                alert(response);
+                window.location.replace("./wall.php");
             }).fail(function (e) {
                 alert("error" + e);
             });
         }
     });
+
+    $('#postButton').on('click', function(e){
+        e.preventDefault();
+        var url = $('#voiceForm').attr('action');
+        var data = {
+            'voicePost':true,
+            'textValue':$('#voiceInput').val(),
+            'picValue': "test"
+        };
+        $.post(url, data, function (response) {
+            $('#voiceInput').val("")
+            var wallData= response + $('#wall-posts').html();
+            $('#wall-posts').html(wallData);
+        }).fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+    });
+
+
+
 });
