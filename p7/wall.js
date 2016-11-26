@@ -28,4 +28,22 @@ $(document).ready(function () {
             alert( "Request failed: " + textStatus );
         });
     });
+
+    $('#uploadArea').slideToggle(500);
+    $('#uploadPictureButton').on('click', function(e){
+        e.preventDefault();
+       $('#uploadArea').slideToggle(500);
+    });
+    $('.fileinput-remove-button').on('click',function(){
+        var url = $('#voiceForm').attr('action');
+        var data = {
+            'clearUploads':true
+        };
+        $.post(url, data, function (response) {
+            alert("cleared session var");
+        }).fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+    });
+
 });
