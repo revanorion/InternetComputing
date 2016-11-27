@@ -12,9 +12,17 @@ $(document).ready(function () {
         alert( "Request failed: " + textStatus );
     });
 
+    $("#input-fa").fileinput({
+        showRemove: false,
+        maxFileCount: 10,
+        uploadUrl: "upload2.php"
+
+    });
+
+
+
     $('#postButton').on('click', function(e){
         e.preventDefault();
-        var url = $('#voiceForm').attr('action');
         var data = {
             'voicePost':true,
             'textValue':$('#voiceInput').val(),
@@ -35,7 +43,6 @@ $(document).ready(function () {
        $('#uploadArea').slideToggle(500);
     });
     $('.fileinput-remove-button').on('click',function(){
-        var url = $('#voiceForm').attr('action');
         var data = {
             'clearUploads':true
         };
@@ -45,5 +52,38 @@ $(document).ready(function () {
             alert( "Request failed: " + textStatus );
         });
     });
+    $(document).on('click','.kv-file-remove',function(){
+        alert("clicked file remove");
+    });
+    $(document).on('click','.like',function(){
+        var dataId = $(this).data('id');
+        if($(this).prop('checked'))
+        {
+            //like func
+            var data = {
+                'likePost':true,
+                'wallSEQ': dataId
+            };
+            $.post(url, data, function (response) {
+                var wallPost= '#WALL-SEQ-'+ dataId;
+                $(wallPost).html(response);
+            }).fail(function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+            });
+        } else{
+            //unlike func
+            var data = {
+                'unlikePost':true,
+                'wallSEQ':dataId
+            };
+            $.post(url, data, function (response) {
+                var wallPost= '#WALL-SEQ-'+dataId;
+                $(wallPost).html(response);
+            }).fail(function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+            });
+        }
+    });
+
 
 });

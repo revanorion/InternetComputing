@@ -69,11 +69,6 @@ include('session.php');
                         <div id="uploadArea">
                             <label class="control-label">Select File</label>
                             <input id="input-fa" name="inputfa[]" type="file" multiple class="file-loading">
-                            <script>
-                                $("#input-fa").fileinput({
-                                    uploadUrl: "upload2.php"
-                                });
-                            </script>
                         </div>
                     </form>
                 </div>

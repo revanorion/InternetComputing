@@ -62,3 +62,24 @@ span.glyphicon-user {
 .dropdown-menu a{
     color: black;
 }
+
+
+
+.glyphicon-thumbs-up [value=true]{
+    color: dodgerblue;
+}
+.glyphicon-thumbs-up:hover{
+    color: rgba(0, 82, 134, 0.4);
+}
+.like{
+    display: none !important;
+}
+.like:checked + label {
+    color: dodgerblue;
+}
+.like-label + label{
+    display: none;
+}
+.like-label:hover + label{
+    display: inline-block;
+}
