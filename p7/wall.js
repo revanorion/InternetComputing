@@ -2,6 +2,7 @@
 /*global $, jQuery, alert*/
 $(document).ready(function () {
     'use strict';
+    //this loads all the wall posts on the page
     var url = $('#voiceForm').attr('action');
     var data={
         'getPosts':true
@@ -12,15 +13,38 @@ $(document).ready(function () {
         alert( "Request failed: " + textStatus );
     });
 
+    //this sets up the file input thingy along with the post action
     $("#input-fa").fileinput({
-        showRemove: false,
         maxFileCount: 10,
         uploadUrl: "upload2.php"
 
     });
 
+    //this handles the mouse moving over the image to give a preview
+    $(document).on('mousemove','.fileThumb',function(e){
+        var offset = $(this).offset();
+        var x = e.pageX - $(this).offset().left;
+        var y = e.pageY - $(this).offset().top;
+
+        if ($("#ihover").length) {
+            $("#ihover").css({'top': y+200, 'left': x+900});
+        }
+        else{
+            var imgLoc = $(this).children('img').prop('src');
+            var myImg = "<image id='ihover' src='"+imgLoc+"' style='top: "+y+ "; left: "+x+";'>";
+            $(document.body).append(myImg);
+        }
+    });
+
+    //this removes the image hover thingy
+    $(document).on('mouseleave', '.fileThumb', function(){
+        if ($("#ihover").length) {
+            $("#ihover").remove();
+        }
+    });
 
 
+    //this handles when the user posts a new wall post
     $('#postButton').on('click', function(e){
         e.preventDefault();
         var data = {
@@ -37,11 +61,13 @@ $(document).ready(function () {
         });
     });
 
+    //this deals with the upload button to show the actual field.
     $('#uploadArea').slideToggle(500);
     $('#uploadPictureButton').on('click', function(e){
         e.preventDefault();
        $('#uploadArea').slideToggle(500);
     });
+    //this handles the removing of files. this must be done cause session vars have data that must be cleaned
     $('.fileinput-remove-button').on('click',function(){
         var data = {
             'clearUploads':true
@@ -52,9 +78,12 @@ $(document).ready(function () {
             alert( "Request failed: " + textStatus );
         });
     });
+    //this is the tiny trashcan for each image
     $(document).on('click','.kv-file-remove',function(){
-        alert("clicked file remove");
+        alert("clicked file remove. never got around to implementing this. easy tho");
     });
+
+    //this handles the clicking of the like button
     $(document).on('click','.like',function(){
         var dataId = $(this).data('id');
         if($(this).prop('checked'))
@@ -71,7 +100,8 @@ $(document).ready(function () {
                 alert( "Request failed: " + textStatus );
             });
         } else{
-            //unlike func
+            //unlike func.
+            alert("didnt implment this yet lol");
             var data = {
                 'unlikePost':true,
                 'wallSEQ':dataId

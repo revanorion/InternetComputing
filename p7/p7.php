@@ -48,8 +48,11 @@ function likePost($wallSEQ){
     return "WALL POST DOESNT EXIST!";
 }
 
+//This will load a single post based off the wall seq
 function loadPost($wallSEQ){
     require './php/db_connect.php';
+    $userSEQ = $_SESSION['login_user_id'];
+    //this will get the wall post plus the user who posted it
     $selectStmt = "SELECT W.WALL_SEQ, W.USER_SEQ, W.STATUS_TEXT, W.TIME_STAMP, U.USERNAME FROM WALL W JOIN USER U ON W.USER_SEQ = U.USER_SEQ WHERE W.WALL_SEQ = ".$wallSEQ;
     $result = $db->query($selectStmt);
     // output data of each row
@@ -60,16 +63,20 @@ function loadPost($wallSEQ){
             $imageHTML="";
             $likeCount ="0";
             $likeHTML="";
+            //this will get all the images based on the wall post.
             $selectImageStmt = "SELECT I.IMAGE_SEQ, I.IMAGE_NAME FROM WALL_IMAGE WI JOIN IMAGE I ON WI.IMAGE_SEQ = I.IMAGE_SEQ WHERE WI.WALL_SEQ =".$wallSEQ;
             $ImageResult = $db->query($selectImageStmt);
 
             if (mysqli_num_rows($ImageResult) > 0) {
                 while($rowImg = mysqli_fetch_assoc($ImageResult)) {
-                        $imageHTML.="<p><image class='image-post' src='".$rowImg["IMAGE_NAME"]."'></image></p>";
+                    //this will add construct the html elements for each image
+                        $imageHTML.="<p><a class='fileThumb' href='".$rowImg["IMAGE_NAME"]."' target='_blank'><image class='image-post' src='".$rowImg["IMAGE_NAME"]."'></image></a></p>";
                 }
             }
+            //this will select the likes of each wall post.
             $selectCountLikes = "SELECT COUNT(WALL_SEQ) AS LIKES FROM WALL_LIKE WHERE WALL_SEQ = ".$wallSEQ;
             $resultCountLikes = $db->query($selectCountLikes);
+            //this will check to see if the current user has liked the post. this will determine the checked status of the like button
             $selectLike = "SELECT WALL_SEQ FROM WALL_LIKE WHERE WALL_SEQ = ".$wallSEQ." AND USER_SEQ = ".$userSEQ;
             $resultLike = $db->query($selectLike);
             if (mysqli_num_rows($resultLike) > 0) {
@@ -83,6 +90,7 @@ function loadPost($wallSEQ){
                 }
             }
 
+            //this builds the post
             $getResults.= "<div class='col-md-offset-3 col-md-3'>
                         <form class='well'>
                             <p>".$row["USERNAME"]." ".$row["TIME_STAMP"]."</p>
@@ -112,6 +120,7 @@ function loadPost($wallSEQ){
 
 function loadPosts(){
     require_once './php/db_connect.php';
+    //this grabs all posts for the when the page loadds
     $selectStmt = "SELECT W.WALL_SEQ, W.USER_SEQ, W.STATUS_TEXT, W.TIME_STAMP, U.USERNAME FROM WALL W JOIN USER U ON W.USER_SEQ = U.USER_SEQ ORDER BY TIME_STAMP DESC LIMIT 5 ";
     $result = $db->query($selectStmt);
     // output data of each row
@@ -124,16 +133,20 @@ function loadPosts(){
             $wallSEQ=$row["WALL_SEQ"];
             $likeCount ="0";
             $likeHTMl="";
+            //this selects all images for each wall post
             $selectImageStmt = "SELECT I.IMAGE_SEQ, I.IMAGE_NAME FROM WALL_IMAGE WI JOIN IMAGE I ON WI.IMAGE_SEQ = I.IMAGE_SEQ WHERE WI.WALL_SEQ =".$wallSEQ;
             $ImageResult = $db->query($selectImageStmt);
 
             if (mysqli_num_rows($ImageResult) > 0) {
                 while($rowImg = mysqli_fetch_assoc($ImageResult)) {
-                        $imageHTML.="<p><image class='image-post' src='".$rowImg["IMAGE_NAME"]."'></image></p>";
+                    //this will add construct the html elements for each image
+                        $imageHTML.="<p><a class='fileThumb' href='".$rowImg["IMAGE_NAME"]."' target='_blank'><image class='image-post' src='".$rowImg["IMAGE_NAME"]."'></image></a></p>";
                 }
             }
+            //this will select the likes of each wall post.
             $selectCountLikes = "SELECT COUNT(WALL_SEQ) AS LIKES FROM WALL_LIKE WHERE WALL_SEQ = ".$wallSEQ;
             $resultCountLikes = $db->query($selectCountLikes);
+            //this will check to see if the current user has liked the post. this will determine the checked status of the like button
             $selectLike = "SELECT WALL_SEQ FROM WALL_LIKE WHERE WALL_SEQ = ".$wallSEQ." AND USER_SEQ = ".$userSEQ;
             $resultLike = $db->query($selectLike);
             if (mysqli_num_rows($resultLike) > 0) {
@@ -146,7 +159,7 @@ function loadPosts(){
                         $likeCount=$rowLikes["LIKES"];
                 }
             }
-
+            //this builds the post
             $getResults.= "<div class='row'>
                     <div class='col-md-offset-3 col-md-5'>
                         <hr/> </div>
@@ -223,7 +236,7 @@ function postVoice($textValue, $pictureUrl){
                             $imgSeq=mysqli_fetch_assoc($selectImgresult)["IMAGE_SEQ"];
                             $insertWallImageStmt = "INSERT INTO WALL_IMAGE (IMAGE_SEQ, WALL_SEQ) VALUES (".$imgSeq.", ".$wallSeq.")";
                             $db->query($insertWallImageStmt);
-                            $imageHtml.="<p><image class='image-post' src='".$target_file."'></image></p>";
+                            $imageHtml.="<p><a class='fileThumb' href='".$target_file."' target='_blank'><image class='image-post' src='".$target_file."'></image></a></p>";
                             unlink($file['target_file']);
                         }
                     }
@@ -231,8 +244,7 @@ function postVoice($textValue, $pictureUrl){
             }
             $_SESSION['image_posts']=null;
         }
-
-
+        //this builds the post
        return "<div id='".$wallSeq."' class='row'>
                     <div class='col-md-offset-3 col-md-5'>
                         <hr/> </div>
@@ -286,6 +298,7 @@ function loginUser($username, $password){
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if(password_verify($password, $row["PASSWORD"])){
+            //this will store the session vars
             $_SESSION["login_user"] = $username;
             $_SESSION["login_user_id"] = $row["USER_SEQ"];
             $_SESSION["image_posts"] = null;

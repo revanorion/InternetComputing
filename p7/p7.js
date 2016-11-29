@@ -12,6 +12,7 @@ $(document).ready(function () {
                 , 'username': username
                 , 'password': password
             }
+            //This will post to the signup method in php server
             $.post(url, data, function (response) {
                 if (response == -1) {
                     Command: toastr["error"]("Username already taken!", "Failed")
@@ -88,6 +89,7 @@ $(document).ready(function () {
                 'username': username,
                 'password': password
             };
+            //This will post to the login method in php server
             $.post(url, data, function (response) {
                 window.location.replace("./wall.php");
             }).fail(function (e) {
@@ -104,6 +106,7 @@ $(document).ready(function () {
             'textValue':$('#voiceInput').val(),
             'picValue': "test"
         };
+        //This will post  to the voice method in php server
         $.post(url, data, function (response) {
             $('#voiceInput').val("")
             var wallData= response + $('#wall-posts').html();

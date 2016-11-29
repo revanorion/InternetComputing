@@ -83,3 +83,10 @@ span.glyphicon-user {
 .like-label:hover + label{
     display: inline-block;
 }
+#ihover {
+	position: fixed;
+	max-height: 97%;
+	max-width: 75%;
+	padding-bottom: 18px;
+    z-index:2000;
+}
